@@ -1,0 +1,248 @@
+<<!DOCTYPE html>
+<html>
+<head>
+<title>For You 💙</title>
+<meta charset="UTF-8">
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wght@400;600;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+padding:0;
+font-family:'Poppins',sans-serif;
+text-align:center;
+color:white;
+background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #667eea);
+background-size: 400% 400%;
+animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.section{
+display:none;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:40px 20px;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-size:18px;
+margin:10px;
+transition:0.3s;
+}
+
+#yesBtn{
+background:white;
+color:#764ba2;
+}
+
+#yesBtn:hover{
+transform:scale(1.1);
+}
+
+#noBtn{
+background:rgba(0,0,0,0.7);
+color:white;
+position:absolute;
+}
+
+input{
+padding:12px;
+border-radius:25px;
+border:none;
+text-align:center;
+outline:none;
+}
+
+#poemPage{
+background: radial-gradient(circle at center, #e6c27a 0%, #c89f5b 60%, #a67c3d 100%);
+color:#3e2a14;
+overflow-y:auto;
+}
+
+.poem-box{
+max-width:750px;
+width:90%;
+font-size:16px;
+line-height:1.9;
+background:rgba(255, 244, 214, 0.95);
+padding:40px;
+border-radius:12px;
+box-shadow: 
+inset 0 0 25px rgba(0,0,0,0.35),
+0 20px 50px rgba(0,0,0,0.4);
+font-family:'Noto Serif Tamil', serif;
+color:#3b240b;
+text-align:left;
+margin-bottom:60px;
+}
+
+.heart{
+position:fixed;
+bottom:-10px;
+font-size:20px;
+animation:float 6s linear infinite;
+opacity:0.8;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-100vh);opacity:0;}
+}
+
+.firework{
+position:fixed;
+width:6px;
+height:6px;
+background:#fff3d4;
+border-radius:50%;
+box-shadow:0 0 20px #fff3d4;
+animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+0%{transform:scale(1);opacity:1;}
+100%{transform:scale(20);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔐 Lock Screen -->
+<div id="lockScreen" class="section" style="display:flex;background:#111;">
+<h2>Enter Secret Code 💙</h2>
+<input type="password" id="password" placeholder="Enter password">
+<button onclick="checkPassword()">Unlock</button>
+</div>
+
+<!-- 💖 Second Page -->
+<div id="proposalPage" class="section">
+<h1>Would you like to see something? 💙</h1>
+
+<button id="yesBtn" onclick="goToPoem()">
+Click Here ✨
+</button>
+
+</div>
+
+<!-- 📜 Poem Page -->
+<div id="poemPage" class="section">
+<h1 style="color:#3e2a14;">என் முதல் கவிதை உனக்காக💛</h1>
+
+<div class="poem-box">
+கொஞ்சம் பொறாமை தான்<br>
+அந்த பிரம்மன் மீது<br>
+உன்னை படைக்கும்போது<br>
+அவன் உன்னை எவ்வளவு ரசித்திருப்பான் என்று<br>
+கொஞ்சம் பொறாமை தான்<br><br>
+
+கொஞ்சம் ஆசை தான்<br>
+கண்களால் ரசித்த உன்னை<br>
+கைகளால் கட்டி அணைக்க<br>
+கொஞ்சம் ஆசை தான்<br><br>
+
+கொஞ்சம் கோபம் தான்<br>
+எட்டி பார்த்தால் தெரியும் தூரம் இருந்தும்<br>
+உன்னை காண ஒரு வருடம் காத்த வைத்த<br>
+உன்மேல் கொஞ்சம் கோபம் தான்<br><br>
+
+கொஞ்சம் விருப்பம் தான்<br>
+தினமும் உன் விழியை பார்த்து<br>
+என் பொழுதுகள் பொழுதுகள் விடிய<br>
+கொஞ்சம் விருப்பம் தான்<br><br>
+
+கொஞ்சம் ஏக்கம் தான்<br>
+என் தலையணையின் மூலமாக<br>
+கிடைத்த உன் காதல்<br>
+உன்னிடமிருந்து கிடைக்க<br>
+ரொம்ப ஏக்கம் தான்<br><br>
+</div>
+
+</div>
+
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" loop preload="auto">
+<source src="c:\Users\Priya Dhrashini\Downloads\mymusic1.mp3.mpeg" type="audio/mpeg">
+</audio>
+
+<script>
+
+function checkPassword(){
+var pass=document.getElementById("password").value;
+if(pass==="RP215"){
+document.getElementById("lockScreen").style.display="none";
+document.getElementById("proposalPage").style.display="flex";
+}else{
+alert("Wrong password 😜");
+}
+}
+
+function goToPoem(){
+document.getElementById("proposalPage").style.display="none";
+document.getElementById("poemPage").style.display="flex";
+
+var music=document.getElementById("bgMusic");
+music.volume=0.7;
+
+var playPromise = music.play();
+
+if (playPromise !== undefined) {
+playPromise.then(_ => {
+console.log("Music started");
+})
+.catch(error => {
+console.log("Autoplay blocked");
+});
+}
+
+startFireworks();
+}
+
+var noBtn=document.getElementById("noBtn");
+if(noBtn){
+noBtn.addEventListener("mouseover",function(){
+noBtn.style.top=Math.random()*window.innerHeight+"px";
+noBtn.style.left=Math.random()*window.innerWidth+"px";
+});
+}
+
+function createHeart(){
+var heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💙";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart,400);
+
+function startFireworks(){
+for(let i=0;i<40;i++){
+var fw=document.createElement("div");
+fw.classList.add("firework");
+fw.style.left=Math.random()*100+"vw";
+fw.style.top=Math.random()*100+"vh";
+document.body.appendChild(fw);
+setTimeout(()=>fw.remove(),1000);
+}
+}
+
+</script>
+
+</body>
+</html>

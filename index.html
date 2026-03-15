@@ -43,7 +43,6 @@ border-radius:30px;
 cursor:pointer;
 font-size:18px;
 margin:10px;
-transition:0.3s;
 }
 
 #yesBtn{
@@ -60,7 +59,7 @@ outline:none;
 }
 
 #poemPage{
-background: radial-gradient(circle at center, #e6c27a 0%, #c89f5b 60%, #a67c3d 100%);
+background: radial-gradient(circle at center,#e6c27a 0%,#c89f5b 60%,#a67c3d 100%);
 color:#3e2a14;
 overflow-y:auto;
 }
@@ -81,7 +80,7 @@ margin-bottom:60px;
 white-space:pre-line;
 }
 
-/* floating hearts */
+/* hearts */
 
 .heart{
 position:fixed;
@@ -142,12 +141,14 @@ animation:explode 1s ease-out forwards;
 
 </div>
 
-<!-- MUSIC -->
-<audio id="bgMusic" loop preload="auto">
-<source src="mymusic1.mp3" type="audio/mpeg">
+<!-- 🎵 MUSIC -->
+<audio id="bgMusic" loop preload="auto" playsinline>
+<source src="mymusic1.mpeg" type="audio/mpeg">
 </audio>
 
 <script>
+
+/* PASSWORD CHECK */
 
 function checkPassword(){
 
@@ -163,13 +164,15 @@ alert("Wrong password 😜");
 
 }
 
+/* OPEN POEM PAGE */
+
 function goToPoem(){
 
 document.getElementById("proposalPage").style.display="none";
 document.getElementById("poemPage").style.display="flex";
 
 var music=document.getElementById("bgMusic");
-music.volume=0.7;
+music.volume=0.8;
 music.play();
 
 startTyping();
